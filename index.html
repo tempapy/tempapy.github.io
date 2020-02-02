@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="top-bar">
+        <div class="push-left">
+          <input type="range" id="brush-size" min="1" max="5" value="3">
+          <input type="radio" id="pen-btn" name="input-type" value="#000000" checked>
+          <label for="pen-btn">Pen</label>
+          <input type="radio" id="eraser-btn" name="input-type" value="#FFFFFF">
+          <label for="eraser-btn">Eraser</label>
+        </div>
+        <div class="push-right">
+          <button id="undo-btn">Undo</button>
+          <button id="clear-btn">Clear</button>
+          <button id="redo-btn">Redo</button>
+        </div>
+      </div>
+      <div id="canvas-container">
+        <canvas id="c"></canvas>
+      </div>
+      <div class="bottom-bar">
+        <div class="push-left">
+          <p> Color Palette: </p>
+          <input type="color" id="color0">
+          <input type="color" id="color1">
+          <input type="color" id="color2">
+          <input type="color" id="color3">
+        </div>
+        <div class="push-right">
+          <button id="paint-btn">Paint!</button>
+        </div>
+      </div>
+    </div>
+    <canvas hidden id="hidden-c" width="1024" height="1024"></canvas>
+    <canvas hidden id="temp-c" width="1024" height="1024"></canvas>
+    <script src="fit_canvas.js"></script>
+    <script src="draw.js"></script>
+  </body>
+</html>
