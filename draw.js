@@ -2,11 +2,16 @@ let model;
 
 async function app() {
   console.log('Loading model...');
-  model = await tf.loadLayersModel('model/model.json');
+  model = await tf.loadLayersModel('https://raw.githubusercontent.com/tempapy/tempapy.github.io/master/model/model.json');
+  document.getElementsByClassName("lds-grid")[0].style.display = "none";
   console.log('Loaded');
+  draw();
 }
 
 app();
+
+
+function draw(){
 
 
 var c = document.getElementById('c');
@@ -278,18 +283,7 @@ paint_btn.onclick = function()  {
             formated_image.onload = function () { 
             document.write(formated_image.outerHTML);
         }
-        });
-        
-
-        
-        
-
-        
-    }
-
-
-    
-
-
-    
+        });       
+    }  
+}
 }
