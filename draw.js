@@ -269,6 +269,7 @@ paint_btn.onclick = function()  {
         const temp_normalizedInput = tf.div(floatInput, tf.scalar(255.0));
         const normalizedInput = tf.sub(tf.mul(temp_normalizedInput, tf.scalar(2)), tf.scalar(1));
         const normalizedInput_withBatch = normalizedInput.expandDims(0);
+        //model.compile({optimizer: tf.train.adam(2e-4, 0.5)});
         const output = model.predict(normalizedInput_withBatch);
         const squeezedOutput = output.squeeze();
         const denormalizedOutput = tf.add(tf.mul(squeezedOutput , tf.scalar(0.5)), tf.scalar(0.5)); 
